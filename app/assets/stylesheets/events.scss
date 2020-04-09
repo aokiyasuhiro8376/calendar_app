@@ -1,3 +1,25 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table {
+  width: 100%;
+  border: solid 2px white;
+  tr {
+    th {
+      font-size: 14px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+}
+
+tbody {
+  tr {
+    background-color: white;
+    color: #1da1f2;
+    td {
+    text-align: left;
+    }
+  }
+}

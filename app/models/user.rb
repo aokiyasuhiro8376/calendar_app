@@ -17,8 +17,8 @@ class User < ApplicationRecord
   #メールに記載されているURLをクリックして本登録を完了する、といったよくある登録方式を提供します。また、サインイン中にアカウントが認証済みかどうかを検証します。
          :lockable,
   #一定回数サインインを失敗するとアカウントをロックします。ロック解除にはメールによる解除か、一定時間経つと解除するといった方法があります。
-         :timeoutable,
+         :timeoutable
   #一定時間活動していないアカウントのセッションを破棄します。
-         :omniauthable, omniauth_providers: [:twitter]
+       #   :omniauthable, omniauth_providers: [:twitter]
   #intridea/omniauthをサポートします。TwitterやFacebookなどの認証を追加したい場合はこれを使用します。
 end
