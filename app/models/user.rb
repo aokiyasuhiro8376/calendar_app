@@ -9,7 +9,7 @@ class User < ApplicationRecord
   #パスワードをリセットし、それを通知します。
          :rememberable,
   #保存されたcookieから、ユーザーを記憶するためのトークンを生成・削除します。
-         :trackable,
+       #   :trackable,
   #サインイン回数や、サインイン時間、IPアドレスを記録します。
          :validatable,
   #Emailやパスワードのバリデーションを提供します。独自に定義したバリデーションを追加することもできます。
@@ -21,4 +21,8 @@ class User < ApplicationRecord
   #一定時間活動していないアカウントのセッションを破棄します。
        #   :omniauthable, omniauth_providers: [:twitter]
   #intridea/omniauthをサポートします。TwitterやFacebookなどの認証を追加したい場合はこれを使用します。
+
+  has_many :events
+  has_many :chats
+
 end
