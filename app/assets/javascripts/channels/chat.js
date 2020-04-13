@@ -1,35 +1,26 @@
 App.chat = App.cable.subscriptions.create("ChatChannel", {
-  connected: function(){
-    //called when the subscription is ready for use on the server
+  connected: function() {
+    // Called when the subscription is ready for use on the server
   },
 
-  disconnected: function(){
-    //called when the subscription has been terminated by the server
+  disconnected: function() {
+    // Called when the subscription has been terminated by the server
   },
 
-  received: function(data){
-    return $('#chat-index).append('<li>' + data.message + '</li>');
+  received: function(data) {
+    // Called when there's incoming data on the websocket for this channel
+    return $('#chat-index').append('<li>' + data['message'] + '</li>');
   },
 
-  $(document).on('keypress', '[data-behavior~=chat_post]', function(event){
-    if(event.keyCode === 13){
-      var chatForm = $('#chat-form');
-      App.chat.post(chatForm.val());
-      return;
-    }; 
-  });
-});
+  // post: function(message) {
+  //   return this.perform('post', { message: message});
+  // }
+}, $(document).on('keypress', '[data-behavior~=chat_post]', function(event) {
+  if (event.keyCode === 13) {
+    var chatForm = $('#chat-form');
+    App.chat.post(chatForm.val());
+    return; 
+    // chatForm.val('');
+  }
+}));
 
-
-App.room = App.cable.subscriptions.create "RoomChannel",
-  connected: ->
-    // # Called when the subscription is ready for use on the server
-
-  disconnected: ->
-    // # Called when the subscription has been terminated by the server
-
-  received: (data) ->
-    // # Called when there's incoming data on the websocket for this channel
-
-  speak: ->
-    @perform 'speak'

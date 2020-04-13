@@ -1,10 +1,10 @@
 class ChatController < ApplicationController
-  def create
-    @chats = Chat.new(chat.params[:message])
-    @chats.save
-  end
-
   def show
     @chats = Chat.all
+  end
+
+  def create
+    @chat = Chat.new(chat.params[:message])
+    @chat.save
   end
 end
