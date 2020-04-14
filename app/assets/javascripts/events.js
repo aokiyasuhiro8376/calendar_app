@@ -2,13 +2,14 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
-//= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 //= require jquery
 //= require moment
 //= require fullcalendar
+//= require rails-ujs
+//= require_tree .
+
 
 $(function () {
   $(document).on('turbolinks:load', function () {

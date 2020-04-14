@@ -2,12 +2,12 @@
 
 Rails.application.routes.draw do
   devise_for :users
+  root 'events#index'
   resources :events
   resources :chats
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'events#index'
-  get '/' => 'chat#show'
-  post '/chats' => 'chats#create'
+  # get '/', to: 'chats#show'
+  post '/chats', to: 'chats#create'
 
-  # mount ActionCable.server => '/cable'
+  mount ActionCable.server => '/cable'
 end
